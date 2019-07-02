@@ -1,6 +1,38 @@
 spring:
   application:
     name: zipkin-service
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.102.202:3306//old-c2b-800-local?useUnicode=true&characterEncoding=utf8&useSSL=true
+    username: bwoiluser
+    password: bwoil@123
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    filters: stat
+    minEvictableIdleTimeMillis: 300000      # 配置一个连接在池中最小生存的时间，单位是毫秒
+    poolPreparedStatements: true
+#    druid:
+#      driverClassName: com.mysql.jdbc.Driver
+#      url: jdbc:mysql://192.168.102.202:3306/old-c2b-800-local?allowMultiQueries=true&autoReconnect=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+#      username: bwoiluser
+#      password: bwoil@123
+#      filters: stat
+#      maxActive: 30
+#      initialSize: 1
+#      minIdle: 5
+#      maxWait: 60000
+#      timeBetweenEvictionRunsMillis: 60000
+#      minEvictableIdleTimeMillis: 300000
+#      validationQuery: SELECT 'x'
+#      testWhileIdle: true
+#      testOnBorrow: false
+#      testOnReturn: false
+#      maxOpenPreparedStatements: 20
+#      removeAbandoned: true
+#      removeAbandonedTimeout: 1800
+#      logAbandoned: true
 
 server:
   port: 9411
