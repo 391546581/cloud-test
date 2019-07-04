@@ -51,8 +51,35 @@ eureka:
 #      defaultZone: http://192.168.101.55:8760/eureka
   instance:
     prefer-ip-address: true
-    leaseRenewalIntervalInSeconds: 10
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 20
 
+
+#########性能优化相关####################
+
+feign:
+  hystrix:
+    enabled: true
+
+ribbon:
+  ReadTimeout: 30000
+  ConnectTimeout: 30000
+
+hystrix:
+  threadpool:
+    default:
+      coreSize: 10
+      maxQueueSize: 1500
+      queueSizeRejectionThreshold: 1000
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:                  ##40秒>= ribbon(5000+5000)*2*2
+            timeoutInMilliseconds: 40000
+#########性能优化相关 end####################
 
 #    health-check-url-path: /actuator/health #2.0后actuator的地址发生了变化
 #    metadata-map:

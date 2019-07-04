@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -14,11 +16,14 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 
-@SpringBootApplication(scanBasePackages = {"com.blue.rest.api.**"})
+@SpringBootApplication(scanBasePackages = {"com.blue.rest.api.**","com.blue.rest.hystrix.**"})
 @EnableFeignClients(basePackages = {"com.blue.rest.feign"})
 @ServletComponentScan
 @EnableEurekaClient
 @EnableSwagger2
+
+@EnableCircuitBreaker
+@EnableHystrixDashboard//展示熔断器仪表盘
 public class BwoilZipkinServicesApplication {
 
 	public static void main(String[] args) {
