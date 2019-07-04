@@ -8,5 +8,4 @@ package com.blue.rest.api.routeTest;
 public enum  TestEnum {
     Type1,
     Type2,
-    Type3
 }

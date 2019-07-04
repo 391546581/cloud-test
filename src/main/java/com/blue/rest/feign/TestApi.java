@@ -17,6 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface TestApi {
 
     @ApiOperation("payTest" )
-    @RequestMapping(value = "/api/order/test/payTest",method = RequestMethod.POST)
+    @RequestMapping(value = "/api/test/payTest",method = RequestMethod.POST)
     String payTest(@ApiParam("支付请求参数") @RequestParam("req") String payReq);
 }

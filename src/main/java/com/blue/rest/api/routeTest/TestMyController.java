@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @Auther: wangcs
  * @Date: 2019/6/26 09:55
@@ -17,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("/api/order/test")
+@RequestMapping("/api/test")
 @Slf4j
 public class TestMyController {
 
@@ -29,7 +31,8 @@ public class TestMyController {
      */
     @RequestMapping(value="/payConfirm", method= RequestMethod.POST)
     @ApiOperation("payConfirm" )
-    public String payConfirm(String req) {
+    public String payConfirm(HttpServletRequest request,@RequestParam(value = "req",required = false) String req) {
+        System.out.println(1);
         String resultObject = TestApi.payTest(req);
         log.info(JSONObject.toJSONString(resultObject));
         return resultObject;

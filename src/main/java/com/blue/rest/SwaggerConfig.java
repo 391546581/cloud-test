@@ -23,13 +23,13 @@ public class SwaggerConfig {
 				.paths(PathSelectors.any())
 				.build();
 	}
+
 	private ApiInfo buildApiInf(){
 		return new ApiInfoBuilder()
 				.title("TEST")
 				.description("TEST")
 				.version("1.0")
 				.build();
-
 	}
      
 }
