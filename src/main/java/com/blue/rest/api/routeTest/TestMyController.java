@@ -27,7 +27,8 @@ public class TestMyController {
     com.blue.rest.feign.TestApi TestApi;
 
     /**
-     * 支付确认
+     * http://127.0.0.1/api/test/payConfirm?req=Type2
+     *
      */
     @RequestMapping(value="/payConfirm", method= RequestMethod.POST)
     @ApiOperation("payConfirm" )
