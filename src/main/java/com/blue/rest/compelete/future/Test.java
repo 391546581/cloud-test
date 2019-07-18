@@ -14,11 +14,7 @@ import static java.util.concurrent.CompletableFuture.*;
 public class Test extends AbstractPackageService{
     @Override
     protected Collection<String> getRepos() {
-        repos.addAll(Arrays.asList("1","2","3","4"));
-        return repos;
-//        Set emptySet = Collections.EMPTY_SET;
-//        emptySet.addAll(Arrays.asList("1","2","3","4"));
-//        return emptySet;
+        return Arrays.asList("1","2","3","4");
     }
 
     @Override
